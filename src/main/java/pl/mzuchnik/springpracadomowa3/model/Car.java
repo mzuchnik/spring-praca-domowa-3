@@ -1,7 +1,9 @@
 package pl.mzuchnik.springpracadomowa3.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.validation.constraints.Min;
@@ -9,6 +11,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Car extends RepresentationModel<Car> {
 
@@ -26,13 +30,4 @@ public class Car extends RepresentationModel<Car> {
     @NotNull
     private String color;
 
-    public Car() {
-    }
-
-    public Car(long id, String mark, String model, String color) {
-        this.id = id;
-        this.mark = mark;
-        this.model = model;
-        this.color = color;
-    }
 }

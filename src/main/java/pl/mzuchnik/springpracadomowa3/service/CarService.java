@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface CarService {
 
     List<Car> getAllCars();
-    Car getCarById(long id);
+    Optional<Car> getCarById(long id);
     List<Car> getCarsByColor(String color);
     Car addCar(Car car);
     Car removeCarById(long id);

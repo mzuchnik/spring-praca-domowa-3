@@ -6,6 +6,7 @@ import pl.mzuchnik.springpracadomowa3.exception.CarNotFoundException;
 import pl.mzuchnik.springpracadomowa3.model.Car;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,11 +25,10 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    public Car getCarById(long id) {
+    public Optional<Car> getCarById(long id) {
         return carList.stream()
                 .filter(car -> car.getId() == id)
-                .findFirst()
-                .orElseThrow(() -> new CarNotFoundException(id));
+                .findFirst();
     }
 
     @Override
