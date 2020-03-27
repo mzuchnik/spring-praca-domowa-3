@@ -48,6 +48,10 @@ public class CarApi {
     public ResponseEntity<CollectionModel<EntityModel<Car>>> getCarsByColor(@PathVariable String color) {
 
         List<Car> carList = carService.getCarsByColor(color);
+        if(carList.isEmpty() || carList == null)
+        {
+            throw new CarNotFoundException();
+        }
         CollectionModel<EntityModel<Car>> carListModel = carWithManagerResourceAssembler.toCollectionModel(carList);
 
         return ResponseEntity.ok(carListModel);

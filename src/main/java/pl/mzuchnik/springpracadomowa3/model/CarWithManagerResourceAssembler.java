@@ -19,8 +19,8 @@ public class CarWithManagerResourceAssembler implements SimpleRepresentationMode
 
     @Override
     public void addLinks(CollectionModel<EntityModel<Car>> resources) {
-        resources.add(linkTo(methodOn(CarApi.class).getCars()).withSelfRel());
-        resources.add(linkTo(methodOn(CarApi.class).getCarsByColor(new String())).withSelfRel());
+        resources.add(linkTo(methodOn(CarApi.class).getCars()).withRel("cars"));
+        resources.add(linkTo(methodOn(CarApi.class).getCarsByColor(new String())).withRel("colors"));
     }
 
 }
